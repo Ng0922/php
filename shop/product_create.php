@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
     <title>PDO - Create a Record - PHP CRUD Tutorial</title>
     <meta charset="utf-8">
@@ -72,7 +71,7 @@
             if (empty($expired_date)) {
                 $errors[] = 'Expired Date is empty.';
             } else {
-                $diff = date_diff($manufacture_date, $expired_date);
+                $diff = date_diff($manufacture_date,  $expired_date);
                 if ($diff->invert == 1) {
                     $errors[] = "Expired Date must be later than Manufacture Date.";
                 }
