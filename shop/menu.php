@@ -13,10 +13,10 @@
           <a class="product_listing.php" href="">Product Listing</a>
         </li>
         <li class="nav-item">
-          <a class="customer_create" href="">Create Customer</a>
+          <a class="customer_create.php" href="">Create Customer</a>
         </li>
         <li class="nav-item">
-          <a class="customer_listing" aria-disabled="true">Customer Listing</a>
+          <a class="customer_listing.php" aria-disabled="true">Customer Listing</a>
         </li>
       </ul>
     </div>
