@@ -7,13 +7,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-
-
 <body>
-<?php include 'menu.php';
-    ?>
+    <?php include 'menu.php'; ?>
     <!-- container -->
-    
     <div class="container">
         <div class="page-header">
             <h1>Read Product</h1>
@@ -31,7 +27,7 @@
         // read current record's data
         try {
             // prepare select query
-            $query = "SELECT id, name, description, price FROM products WHERE id = ? LIMIT 0,1";
+            $query = "SELECT id, name, description, price, promotion_price, manufacture_date, expired_date FROM products WHERE id = ? LIMIT 0,1";
             $stmt = $con->prepare($query);
 
             // this refer to the first question mark
@@ -47,6 +43,9 @@
             $name = $row['name'];
             $description = $row['description'];
             $price = $row['price'];
+            $promotion_price = $row['promotion_price'];
+            $manufacture_date = $row['manufacture_date'];
+            $expired_date = $row['expired_date'];
         }
 
         // show error
@@ -54,8 +53,6 @@
             die('ERROR: ' . $exception->getMessage());
         }
         ?>
-
-
 
         <!-- HTML read one record table will be here -->
 
@@ -74,13 +71,24 @@
                 <td><?php echo $price;  ?></td>
             </tr>
             <tr>
+                <td>Promotion Price</td>
+                <td><?php echo !empty($promotion_price) ? $promotion_price : 'N/A';  ?></td>
+            </tr>
+            <tr>
+                <td>Manufacture Date</td>
+                <td><?php echo !empty($manufacture_date) ? date('Y-m-d', strtotime($manufacture_date)) : 'N/A';  ?></td>
+            </tr>
+            <tr>
+                <td>Expired Date</td>
+                <td><?php echo !empty($expired_date) ? date('Y-m-d', strtotime($expired_date)) : 'N/A';  ?></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td>
                     <a href='index.php' class='btn btn-danger'>Back to read products</a>
                 </td>
             </tr>
         </table>
-
 
     </div> <!-- end .container -->
 

@@ -4,8 +4,17 @@
 
 <head>
     <title>PDO - Create a Record - PHP CRUD Tutorial</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function delete_user(id) {
+            if (confirm('Are you sure you want to delete this Account?')) {
+                window.location.href = 'customer_listing.php?id=' + id;
+            }
+        }
+    </script>
 </head>
 
 
@@ -33,7 +42,7 @@
             $num = $stmt->rowCount();
 
             // link to create record form
-            echo "<a href='product_create.php' class='btn btn-primary m-b-1em'>Create New Product</a>";
+            echo "<a href='customer_create.php' class='btn btn-primary m-b-1em'>Create New Product</a>";
 
             //check if more than 0 record found
             if ($num > 0) {
@@ -67,7 +76,7 @@
                     echo "<a href='customer_details.php?id={$id}' class='btn btn-info m-r-1em'>Read</a>";
 
                     // we will use this links on next part of this post
-                    echo "<a href='update.php?id={$id}' class='btn btn-primary m-r-1em'>Edit</a>";
+                    echo "<a href='customer_update.php?id={$id}' class='btn btn-primary m-r-1em'>Edit</a>";
 
                     // we will use this links on next part of this post
                     echo "<a href='#' onclick='delete_user({$id});'  class='btn btn-danger'>Delete</a>";

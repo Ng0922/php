@@ -34,19 +34,19 @@
                 $dob = $_POST['dateofbirth'];
                 $errors = [];
                 //Check Username
-                if (!empty($username)) {
+                if (empty($username)) {
                     $errors[] = 'Username is required.';
                 }
                 //Check Password
-                if (!empty($password)) {
+                if (empty($password)) {
                     $errors[] = 'Password is required.';
                 }
                 //Check First Name
-                if (!empty($firstname)) {
+                if (empty($firstname)) {
                     $errors[] = 'First Name is required.';
                 }
                 //Check Last Name
-                if (!empty($lastname)) {
+                if (empty($lastname)) {
                     $errors[] = 'Last Name is required.';
                 }
                 //Check Gender
@@ -80,7 +80,7 @@
                     // specify when this record was inserted to the database
                     // Execute the query
                     if ($stmt->execute()) {
-                        echo "<div class='alert alert-success'>Product was added.</div>";
+                        echo "<div class='alert alert-success'>Customer was added.</div>";
                     } else {
                         echo "<div class='alert alert-danger'>Unable to save record.</div>";
                     }
@@ -130,7 +130,7 @@
                     <td></td>
                     <td>
                         <input type='submit' value='Save' class='btn btn-primary' />
-                        <a href='product_details.php' class='btn btn-danger'>Back to read products</a>
+                        <a href='customer_details.php' class='btn btn-danger'>Back to read products</a>
                     </td>
                 </tr>
             </table>

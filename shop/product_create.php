@@ -36,7 +36,7 @@
             $promotion_price = $_POST['promotion_price'];
             $manufacture_date = $_POST['manufacture_date'];
             $expired_date = $_POST['expired_date'];
-            $product_category = $_POST['category'];
+            $product_cat = $_POST['category'];
             $errors = [];
             //Check name
             if (empty($name)) {
@@ -71,7 +71,7 @@
                 $expired_date = date('Y-m-d', strtotime($expired_date));
             }
             //Check Category
-            if (empty($product_category)) {
+            if (empty($product_cat)) {
                 $errors[] = "Choose a product category.";
             }
             //If there is errors, show them
@@ -83,7 +83,7 @@
                 echo "</ul></div>";
             } else {
                 // insert query
-                $query = "INSERT INTO products SET name=:name, description=:description, price=:price, promotion_price=:promotion_price, manufacture_date=:manufacture_date, expired_date=:expired_date, product_category=:product_category, created=:created";
+                $query = "INSERT INTO products SET name=:name, description=:description, price=:price, promotion_price=:promotion_price, manufacture_date=:manufacture_date, expired_date=:expired_date, product_cat=:product_cat, created=:created";
                 // prepare query for execution
                 $stmt = $con->prepare($query);
                 // bind the parameters
@@ -93,7 +93,7 @@
                 $stmt->bindParam(':promotion_price', $promotion_price);
                 $stmt->bindParam(':manufacture_date', $manufacture_date);
                 $stmt->bindParam(':expired_date', $expired_date);
-                $stmt->bindParam(':product_category', $product_category);
+                $stmt->bindParam(':product_cat', $product_cat);
                 // specify when this record was inserted to the database
                 $created = date('Y-m-d H:i:s');
                 $stmt->bindParam(':created', $created);
